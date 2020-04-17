@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Travel App</title>
+<link href="https://fonts.googleapis.com/css?family=Oswald:400,600,700|Ranga:400,700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Pacifico|Philosopher&display=swap" rel="stylesheet">
+
+</head>
+ <body>
+<main id = "app">
+  <section id="flex">
+  <section>
+    <header>
+    <h1 class ="holder headline">
+      Travel App
+    </h1>
+  </header>
+  <section>
+    <form class ="holder zip">
+        <div class="destination">
+          <label for="travel-location">Travelling to:</label>
+          <input type="text" name="location" id="travel-location" placeholder="enter destination">
+        </div>
+<!-- Dates  -->
+        <div class="travel-dates">
+
+        <div class="departure">
+          <label for="departure-date">Departure date:</label>
+          <input type="date" id="departure-date" placeholder="MM/DD/YYYY">
+        </div>
+
+        <div class="return">
+          <label for="return-date">Return date:</label>
+          <input type="date" id="return-date" placeholder="MM/DD/YYYY">
+        </div>
+
+        </div>
+<!-- Dates End  -->
+
+        <div class ="holder">
+          <button id="submit" type="submit">Explore</button>
+        </div>
+  </form>
+</section>
+</section>
+      <section class="data-container holder">
+        <section class="location-cover">
+          <img class="img"/>
+        </section>
+        <section class="time">
+          <h2>The Details:</h2>
+          <div class="time-left">Approximate Location, travelling to:
+            <span class="country"></span> 
+            <span class="days"></span></div>
+          <p class="trip-duration">Travel Duration: 
+            <span class="duration">
+            </span><span class="duration-days"></span>
+          </p>
+          <div class="information">
+            <h2>Forecast:</h2>
+            <div class="forecast">
+              <p class="temp"></p>
+            </div>
+          </div>
+          </div>
+        </section>
+      </section>
+    </main>
+  </section>
+    <footer>
+      Travel The World
+    </footer>
+    <script>
+      // Check that service workers are supported
+      if ('serviceWorker' in navigator) {
+          // Use the window load event to keep the page load performant
+          window.addEventListener('load', () => {
+              navigator.serviceWorker.register('/service-worker.js');
+          });
+      }
+  </script>
+  </body>
+</html>

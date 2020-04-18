@@ -1,5 +1,7 @@
 # Travel App - Capstone
 ## Description
+This project is the Capstone project of the Front end nanodegree @ Udacity.
+The app lets you choose a destination and decide on dates of travel, then it will show you a photo of the location, and weather, trip length.
 
 ## APIs
  * [Geonames] http://www.geonames.org/export/web-services.html

@@ -3,6 +3,8 @@
 This project is the Capstone project of the Front end nanodegree @ Udacity.
 The app lets you choose a destination and decide on dates of travel, then it will show you a photo of the location, and weather, trip length.
 
+The project combines 3 API's: Geonames (for location), Weatherbit (for weather), Pixabay (for images).
+
 ## APIs
  * [Geonames] http://www.geonames.org/export/web-services.html
  * [Weatherbit] https://www.weatherbit.io/account/create

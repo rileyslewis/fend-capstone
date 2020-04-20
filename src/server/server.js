@@ -1,54 +1,51 @@
 const dotenv = require('dotenv');
 dotenv.config();
+
+const bodyParser = require('body-parser');
+const cors = require('cors');
 const express = require('express');
+const path = require('path');
 const app = express();
-const fetch = require('node-fetch');
-/* Dependencies */
-const bodyParser = require('body-parser')
 
 /* Middleware*/
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
-const cors = require('cors');
 app.use(cors());
 
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({
+    extended: true
+}));
+
 app.use(express.static('dist'));
-
-const port = 3000;
-/* Spin up the server*/
-const server = app.listen(port, listening);
- function listening(){
-    console.log(`Running Travel App on localhost: ${port}`);
-  };
-
-let travel = {};
-// GET Route
+//Creating Routes
 app.get('/', function (req, res) {
-  res.sendFile(path.join(__dirname, 'dist', 'index.html'))
+    
+    res.sendFile(path.join(__dirname, 'dist', 'index.html'))
+    
 })
 
-console.log(__dirname)
+let projectData = {};
 
-app.post('/weather', async (req, res) => {
-  const getWeather = await fetch(req.body.url);
-  const response = getWeather.json();
-  response.then((weather) => {
-    const weatherbit = {
-      tempAtm: weather.data[0].temp,
-      dayHighTemp: weather.data[0].highTemp,
-      dayLowTemp: weather.data[0].lowTemp
-    }
-  res.send(weatherbit);
 
-  }).catch ((error) => {
-    console.log(error);
-  })
+//handle the recieved data from geo names API
+app.post('/addData', addData);
+//GET request returns the project data
+app.get('/travelData', travelData);
 
-})
+//get project data from server
+function travelData(req, res) {
+    console.log(projectData);
+    res.send(JSON.stringify(projectData));
+}
 
-app.get('/data', (req, res) => {
-  res.send(travel);
-  console.log(travel);
-})
+//store project data to server
+function addData(req, res) {
+    projectData = {};
+    projectData = req.body;
+    console.log(projectData);
+}
 
-module.exports = app
+app.listen(3000, function () {
+    console.log('Travel App available on port 3000.');
+});
+
+module.exports = app;

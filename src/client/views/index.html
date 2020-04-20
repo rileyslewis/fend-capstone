@@ -1,84 +1,60 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Travel App</title>
-<link href="https://fonts.googleapis.com/css?family=Oswald:400,600,700|Ranga:400,700&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css?family=Pacifico|Philosopher&display=swap" rel="stylesheet">
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Pacifico|Philosopher&display=swap" rel="stylesheet">
+    <title>Travel app</title>
 </head>
- <body>
-<main id = "app">
-  <section id="flex">
-  <section>
-    <header>
-    <h1 class ="holder headline">
-      Travel App
-    </h1>
-  </header>
-  <section>
-    <form class ="holder zip">
-        <div class="destination">
-          <label for="travel-location">Travelling to:</label>
-          <input type="text" name="location" id="travel-location" placeholder="enter destination">
-        </div>
-<!-- Dates  -->
-        <div class="travel-dates">
-
-        <div class="departure">
-          <label for="departure-date">Departure date:</label>
-          <input type="date" id="departure-date" placeholder="MM/DD/YYYY">
-        </div>
-
-        <div class="return">
-          <label for="return-date">Return date:</label>
-          <input type="date" id="return-date" placeholder="MM/DD/YYYY">
-        </div>
-
-        </div>
-<!-- Dates End  -->
-
-        <div class ="holder">
-          <button id="submit" type="submit">Explore</button>
-        </div>
-  </form>
-</section>
-</section>
-      <section class="data-container holder">
-        <section class="location-cover">
-          <img class="img"/>
-        </section>
-        <section class="time">
-          <h2>The Details:</h2>
-          <div class="time-left">Approximate Location, travelling to:
-            <span class="country"></span> 
-            <span class="days"></span></div>
-          <p class="trip-duration">Travel Duration: 
-            <span class="duration">
-            </span><span class="duration-days"></span>
-          </p>
-          <div class="information">
-            <h2>Forecast:</h2>
-            <div class="forecast">
-              <p class="temp"></p>
+<body>
+    <main id="app">
+        <header class="holder">
+            <h1 id="headline">Travel App</h1>
+        </header>
+        <!-- result for the user-->
+        <section id="container" class="card hidden">
+            <div id="tripDataContainer">
+                <img id="destination-img" class="hidden" src="" />
+                <div id="tripInfo">
+                    <div id="location-header"></div>
+                    <div id="departure-date"></div>
+                    
+                    <div id="information">
+                        <h3>Weather Forecast:</h3>
+                        <div id="highTemp" class="temp"></div>
+                        <div id="lowTemp" class="temp"></div>
+                        <div id="weather-forecast">
+                            <img id="weatherCloud" class="inline" src="" width="50" height="50" />
+                            <div id="weather-forecast" class="inline"></div>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
-          </div>
         </section>
-      </section>
+
+        <!-- user input -->
+        <section class="data-container holder">
+            <form>
+                <input id="cityName" type="text" name="input" placeholder="City" required>
+                <input id="travelDate" type="date" name="input" placeholder="Enter your trip date" required>
+                <input type="submit" name="submit" id="submit" value="Explore">
+            </form>
+            <div id="error-info" class="hidden"></div>
+        </section>
     </main>
-  </section>
-    <footer>
-      Travel The World
-    </footer>
+
+    <!-- footer of the page -->
+    <footer id="footer"><label id="footer-h">Travel The World</label></footer>
+    
     <script>
-      // Check that service workers are supported
-      if ('serviceWorker' in navigator) {
-          // Use the window load event to keep the page load performant
-          window.addEventListener('load', () => {
-              navigator.serviceWorker.register('/service-worker.js');
-          });
-      }
-  </script>
-  </body>
+        //check that service workers are supported
+        if ('serviceWorker' in navigator) {
+            //use the window load event to keep the page load performant
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/service-worker.js');
+            });
+        }
+    </script>
+</body>
 </html>

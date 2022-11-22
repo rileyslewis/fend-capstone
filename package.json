@@ -34,7 +34,7 @@
     "supertest": "^4.0.2",
     "terser-webpack-plugin": "^2.3.5",
     "webpack": "^4.35.3",
-    "webpack-cli": "^3.3.11"
+    "webpack-cli": "^3.3.12"
   },
   "devDependencies": {
     "@babel/core": "^7.9.0",
@@ -42,7 +42,7 @@
     "babel-loader": "^8.1.0",
     "clean-webpack-plugin": "^3.0.0",
     "css-loader": "^3.4.2",
-    "html-webpack-plugin": "^3.2.0",
+    "html-webpack-plugin": "^5.5.0",
     "jest": "^25.2.7",
     "node-sass": "^4.13.1",
     "sass-loader": "^8.0.2",
